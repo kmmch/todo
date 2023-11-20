@@ -1,5 +1,5 @@
-import { Box, UnorderedList, ListItem, Checkbox, Stack, Text, Button, Flex, HStack, useCheckbox, Center } from "@chakra-ui/react";
 import { FC } from "react";
+import { Box, UnorderedList, ListItem, Checkbox, Text, Button, HStack, Center } from "@chakra-ui/react";
 
 type Props = {
     todos: [];

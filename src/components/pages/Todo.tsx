@@ -1,8 +1,8 @@
 import { memo, FC,useState,ChangeEvent } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 
-import { InputTodoModal } from "../organisms/todo/InputTodoModal";
-import { IncompleteTodos } from "../organisms/todo/IncompleteTodo";
+import { InputTodoModal } from "./../organisms/todo/InputTodoModal";
+import { IncompleteTodos } from "./../organisms/todo/IncompleteTodo";
 
 export const Todo: FC = memo(() => {
 
