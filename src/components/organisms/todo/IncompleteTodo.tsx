@@ -3,12 +3,11 @@ import { Box, UnorderedList, ListItem, Checkbox, Text, Button, HStack, Center } 
 
 type Props = {
     todos: [];
-    onClickComplete: (index:number) => void;
     onClickDelete: (index:number) => void;
 }
 export const IncompleteTodos:FC<Props> = (props) => {
 
-    const {todos, onClickComplete, onClickDelete} = props;
+    const {todos, onClickDelete} = props;
 
     return (
         <>

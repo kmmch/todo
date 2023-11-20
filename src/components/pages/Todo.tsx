@@ -61,6 +61,7 @@ export const Todo: FC = memo(() => {
     }
 
     // 完了ボタン押された時の処理
+    /*
     const onClickComplete = (index: number) => {
 
         // 未完了のTODOを取得する
@@ -77,14 +78,14 @@ export const Todo: FC = memo(() => {
         // setCompleteTodos(newCompleteTodos);
 
     }
+    */
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <>
             <IncompleteTodos 
-                todos={incompleteTodos} 
-                onClickComplete={onClickComplete} 
+                todos={incompleteTodos}
                 onClickDelete={onClickDelete} />
             <InputTodoModal 
                 onOpen={onOpen}
