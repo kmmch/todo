@@ -1,5 +1,5 @@
 import { memo, FC,useState,ChangeEvent } from "react";
-import { useDisclosure } from "@chakra-ui/react";
+import { Container, useDisclosure } from "@chakra-ui/react";
 
 import { InputTodoModal } from "./../organisms/todo/InputTodoModal";
 import { IncompleteTodos } from "./../organisms/todo/IncompleteTodo";
@@ -84,18 +84,20 @@ export const Todo: FC = memo(() => {
 
     return (
         <>
-            <IncompleteTodos 
-                todos={incompleteTodos}
-                onClickDelete={onClickDelete} />
-            <InputTodoModal 
-                onOpen={onOpen}
-                onClose={onClose}
-                onChange={onChangeTodoText}
-                onClick={saveTodo}
-                inputText={inputText}
-                isOpen={isOpen}
-                isTextBlank={isTextBlank}
-            />
+            <Container maxW='md'>
+                <IncompleteTodos 
+                    todos={incompleteTodos}
+                    onClickDelete={onClickDelete} />
+                <InputTodoModal 
+                    onOpen={onOpen}
+                    onClose={onClose}
+                    onChange={onChangeTodoText}
+                    onClick={saveTodo}
+                    inputText={inputText}
+                    isOpen={isOpen}
+                    isTextBlank={isTextBlank}
+                />
+            </Container>
         </>
     );
 });
