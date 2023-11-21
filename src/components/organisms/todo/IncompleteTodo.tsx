@@ -26,18 +26,21 @@ export const IncompleteTodos:FC<Props> = (props) => {
                                 <HStack spacing={5} direction='row'>
                                     <Checkbox
                                         colorScheme='green'
+                                        width='70%'
                                     >
                                         { todo }
                                     </Checkbox>
-                                    <Button 
-                                        colorScheme='teal' 
-                                        variant='solid' 
-                                        borderRadius={50}
-                                        size='xs'
-                                        onClick={(e) => onClickDelete(index)}
-                                    >
-                                        ×
-                                    </Button>
+                                    <Box w='20%'>
+                                        <Button 
+                                            colorScheme='teal' 
+                                            variant='solid' 
+                                            borderRadius={50}
+                                            size='xs'
+                                            onClick={(e) => onClickDelete(index)}
+                                        >
+                                            ×
+                                        </Button>
+                                    </Box>
                                 </HStack>
                             </ListItem>
                         );
