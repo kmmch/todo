@@ -98,9 +98,9 @@ const Todo = () => {
             <CompleteTodos todos={completeTodos} onClick={onClickBack} />
 
             <Stack spacing={2} direction="row">
-                <Button variant="text">Text</Button>
-                <Button variant="contained">Contained</Button>
-                <Button variant="outlined">Outlined</Button>
+                <Button variant="text">テキスト</Button>
+                <Button variant="contained">コンテイン</Button>
+                <Button variant="outlined">アウトライン</Button>
             </Stack>
         </>
     );
