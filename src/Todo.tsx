@@ -1,11 +1,9 @@
 import { useState } from "react";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 
-import "./styles.css";
 import { InputTodo } from "./components/organisms/InputTodo";
 import { IncompleteTodos } from "./components/organisms/IncompleteTodos";
 import { CompleteTodos } from "./components/organisms/CompleteTodos";
+import { Box, Text } from "@chakra-ui/react";
 
 const Todo = () => {
     // 入力されるTODO
@@ -68,40 +66,41 @@ const Todo = () => {
 
     return (
         <>
-            {/* 入力エリア */}
-            <InputTodo
-                todoText={todoText}
-                onChange={onChangeTodoText}
-                onClick={onClickAdd}
-                disabled={isMaxLimitIncompleteTodos}
-            />
+            <Box p={5} maxW={'620px'} w={'100%'} my={0} mx={'auto'}>
+                <Box mb={5} p={3} backgroundColor={'green.100'} borderRadius={15}>
+                    {/* 入力エリア */}
+                    <InputTodo
+                        todoText={todoText}
+                        onChange={onChangeTodoText}
+                        onClick={onClickAdd}
+                        disabled={isMaxLimitIncompleteTodos}
+                    />
+                    {/* TODOの上限に応じてメッセージを表示する */}
+                    {isMaxLimitIncompleteTodos && (
+                        <Text color={'red'}>
+                            登録できるTODOは5個までです。
+                            <br />
+                            タスクを消化してください。
+                        </Text>
+                    )}
+                </Box>
 
-            {/* TODOの上限に応じてメッセージを表示する */}
-            {isMaxLimitIncompleteTodos && (
-                <p style={{ color: "red", margin: "15px" }}>
-                    登録できるTODOは5個までです。
-                    <br />
-                    タスクを消化してください。
-                </p>
-            )}
+                <Box mb={5} p={3} border={'3px solid #B2F5EA'} borderRadius={15}>
+                    {/* 未完了エリア */}
+                    {/* onClickに直接関数を指定するとレンダリングのたびに実行される */}
+                    {/* ->なのでonClickには()=>onClickDeleteで渡している */}
+                    <IncompleteTodos
+                        todos={incompleteTodos}
+                        onClickComplete={onClickComplete}
+                        onClickDelete={onClickDelete}
+                    />
+                </Box>
 
-            {/* 未完了エリア */}
-            {/* onClickに直接関数を指定するとレンダリングのたびに実行される */}
-            {/* ->なのでonClickには()=>onClickDeleteで渡している */}
-            <IncompleteTodos
-                todos={incompleteTodos}
-                onClickComplete={onClickComplete}
-                onClickDelete={onClickDelete}
-            />
-
-            {/* 完了エリア */}
-            <CompleteTodos todos={completeTodos} onClick={onClickBack} />
-
-            <Stack spacing={2} direction="row">
-                <Button variant="text">テキスト</Button>
-                <Button variant="contained">コンテイン</Button>
-                <Button variant="outlined">アウトライン</Button>
-            </Stack>
+                <Box mb={5} p={3} backgroundColor={'teal.100'} borderRadius={15}>
+                    {/* 完了エリア */}
+                    <CompleteTodos todos={completeTodos} onClick={onClickBack} />
+                </Box>
+            </Box>
         </>
     );
 };

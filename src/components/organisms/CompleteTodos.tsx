@@ -1,12 +1,8 @@
-const style = {
-    border: "2px solid #aacfd0",
-    maxWidth: "400px",
-    padding: "8px",
-    margin: "8px",
-    borderRadius: "8px",
-    backgroundColor: "#c9dede",
-};
-  
+import { ListItem, UnorderedList, Flex } from "@chakra-ui/react";
+import { TodoButton } from "../atoms/TodoButton";
+import { TodoListHeding } from "../atoms/TodoListHeading";
+import { TodoTitle } from "../atoms/TodoTitle";
+
 type Props = {
     todos: Array<string>;
     onClick: (index: number) => void;
@@ -16,18 +12,18 @@ export const CompleteTodos = (props: Props) => {
     const { todos, onClick } = props;
     
     return (
-        <div style={style}>
-            <p className="title">完了</p>
-            <ul>
+        <>
+            <TodoListHeding>完了</TodoListHeding>
+            <UnorderedList ml={5}>
             {todos.map((todo: string, index: number) => (
-                <li key={index}>
-                    <div className="list-row">
-                        <p className="todo-item">{todo}</p>
-                        <button onClick={() => onClick(index)}>戻す</button>
-                    </div>
-                </li>
-            ))}
-            </ul>
-        </div>
+                <ListItem key={index} mb={2}>
+                    <Flex align='center'>
+                        <TodoTitle width={'65%'}>{todo}</TodoTitle>
+                        <TodoButton onClick={() => onClick(index)}>戻す</TodoButton>
+                    </Flex>
+                </ListItem>
+            ))};
+            </UnorderedList>
+        </>
     );
 }; 

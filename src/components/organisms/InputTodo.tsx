@@ -1,11 +1,8 @@
-const style = {
-    backgroundColor: "#c6e5d9",
-    maxWidth: "400px",
-    padding: "8px",
-    margin: "8px",
-    borderRadius: "8px",
-};
-  
+import { Flex } from "@chakra-ui/react";
+
+import { TodoButton } from "../atoms/TodoButton";
+import { TodoTextField } from "../atoms/TodoTextField";
+
 type Props = {
     todoText: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -17,16 +14,19 @@ export const InputTodo = (props: Props) => {
     const { todoText, onChange, onClick, disabled } = props;
   
     return (
-        <div style={style}>
-            <input
+        <Flex align='center'>
+            <TodoTextField 
                 disabled={disabled}
                 placeholder="TODOを入力"
                 value={todoText}
+                width={'80%'}
                 onChange={onChange}
             />
-            <button disabled={disabled} onClick={onClick}>
-                追加
-            </button>
-        </div>
+            <TodoButton
+                disabled={disabled} 
+                width={'20%'}
+                onClick={onClick}
+            >追加</TodoButton>
+        </Flex>
     );
 };
