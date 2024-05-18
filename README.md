@@ -1,2 +1,2 @@
 # todo
-Created with CodeSandbox
+React × TypeScript × Viteで作成したTODOアプリ
